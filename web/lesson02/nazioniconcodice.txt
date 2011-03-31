@@ -1,0 +1,5 @@
+fr;Francia
+gb;Gran Bretagna
+nl;Olanda
+it;Italia
+es;Spagna
