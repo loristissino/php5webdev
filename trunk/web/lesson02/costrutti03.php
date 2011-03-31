@@ -11,7 +11,7 @@ $lista=array(
 
 print_r($lista);
 
-sort($lista);
+asort($lista);
 
 print_r($lista);
 
