@@ -3,7 +3,7 @@
 
 $testo="abc;def ghi";
 
-list($codice, $nome)=explode(';', $testo);;
+list($codice, $nome)=explode(';', $testo);
 
 echo "codice: $codice, nome: $nome\n";
 
