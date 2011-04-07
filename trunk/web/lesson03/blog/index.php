@@ -25,3 +25,24 @@
   <li><?php echo $post ?></li>
 <?php endforeach ?>
 </ul>
+
+<h1>Elenco post</h1>
+<ul>
+<?php 
+foreach($realposts as $post)
+{
+  echo "<li>$post</li>";
+}
+?>
+</ul>
+<h1>Elenco post</h1>
+<ul>
+<?php 
+foreach($realposts as $post)
+{
+  echo "<li>$post</li>";
+}
+?>
+</ul>
+
+
