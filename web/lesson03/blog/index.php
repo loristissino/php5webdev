@@ -40,9 +40,11 @@
 <body>
 <?php if($id): ?>
 <h1>Id = <?php echo $id ?></h1>
-<pre>
+<p>
 <?php readfile('posts/'.$id) ?>
-</pre>
+</p>
+<hr />
+<p><a href="?">Elenco post</a></p>
 <?php else: ?>
 <h1>Elenco post</h1>
 <ul>
