@@ -1,0 +1,12 @@
+Source code of lime library is available at
+http://svn.symfony-project.com/tools/lime/tags/RELEASE_1_0_9/lib/lime.php
+
+The documentation is generated with phpDocumentor.
+
+phpdoc -d . -i lime.php -t docs
+
+To install phpdoc on Ubuntu, run:
+
+sudo apt-get install php-pear
+sudo pear install --alldeps phpDocumentor
+
