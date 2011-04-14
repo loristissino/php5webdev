@@ -10,19 +10,3 @@ while ($a<=10)
     break;
 }
 
-
-while ($line=fread())
-{
-  if (iscomment($line))
-    continue;
-  
-  dfgs
-  
-  dfgdfg
-  
-  
-  dfgsdfg
-  
-  
-  
-}
