@@ -40,9 +40,8 @@ function somma($a, $b=6)
 $n=somma(5);
 
 
-function sistemalaboratorio($lab, $internet=false, $proiettore=true)
+function sistemalaboratorio($lab, $internet=true, $proiettore=true)
 {
-  
 }
 
 
@@ -52,9 +51,11 @@ sistemalaboratorio(1);
 
 sistemalaboratorio(1, false); 
 
+$richiestadocente=true;
+
 sistemalaboratorio(1, $richiestadocente); 
 
-sistemalaboratorio(1, null , false); 
+sistemalaboratorio(1, null , false); // non valida
 
 
 function sistemalaboratorio2($lab, $options=array())
@@ -64,6 +65,7 @@ function sistemalaboratorio2($lab, $options=array())
   
 }
 
+/* esempi di chiamate ...
 
 sistemalaboratorio2(1); 
 
@@ -81,3 +83,4 @@ sistemalaboratorio2(1, array(
   'proiettore'=>false)
   ); 
 
+*/
