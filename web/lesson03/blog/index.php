@@ -1,18 +1,15 @@
 <?php
 
+  require_once('../lib/useful_functions.php');
+
   const POSTS_DIR='posts';
 
   $posts=scandir(POSTS_DIR); // leggo la directory dei post
   //print_r($posts); // visualizzo l'elenco
-
-  $realposts=array();
-  foreach($posts as $post)
-  {
-    if (substr($post,0,1)!='.')
-    {
-      $realposts[]=$post;
-    }
-  } // creo un array $realposts che contiene l'elenco degli id che considero validi
+  
+  $realposts=array_filter($posts, 'nothidden');
+  
+  //print_r($realposts); // visualizzo l'elenco
   
   
   if (array_key_exists('id', $_GET))  // recupero l'id del post che l'utente desidera 

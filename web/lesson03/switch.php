@@ -1,23 +1,32 @@
+<h1>Switch demo</h1>
 <pre style="color:blue">
 <?php
-$ruolo="redattore";
+@$role=$_GET['role'];
 
-$possib='';
+$permissions=array();
 
-switch ($ruolo)
+switch ($role)
 {
   case 'admin':
-    $possib .= 'cancella tutto';
-  case 'direttore':
-    $possib .= 'autorizza';
-  case 'redattore':
-    $possib .= 'scrivi';
-  case 'lettore':
-    $possib .= 'leggi';
+    $permissions[] = 'delete everything';
+    $permissions[] = 'admin users';
+  case 'editor':
+    $permissions[] = 'publish articles';
+    $permissions[] = 'set publishing dates';
+  case 'journalist':
+    $permissions[] = 'write an article';
+  case 'reader':
+    $permissions[] = 'read an article';
     break;
   default:
-    echo "nessuna azione specificata\n";
+    $permissions[] = "no permission";
    
 }
 
-echo $possib;
+print_r($permissions);
+
+?>
+</pre>
+<?php foreach(array('admin', 'editor', 'journalist', 'reader') as $role): ?>
+<p><a href="?role=<?php echo $role ?>"><?php echo $role ?></a></p>
+<?php endforeach ?>
