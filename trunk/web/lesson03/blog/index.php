@@ -26,9 +26,20 @@
   {
     $id='';
   }
-
-  //print_r($realposts);
   
+  //print_r($realposts);
+
+  if (array_key_exists('action', $_GET))  // recupero l'id del post che l'utente desidera 
+    {
+     $action=$_GET['action'];
+    }
+  else
+    {
+     $action='view';
+    }
+
+
+
 ?>
 <html lang="it">
 <head>
@@ -37,9 +48,7 @@
 <body>
 <?php if($id): ?>
 <h1>Id = <?php echo $id ?></h1>
-<p>
-<?php readfile('posts/'.$id) ?>
-</p>
+<?php include('templates/' . $action . '.php') ?>
 <hr />
 <p><a href="?">Elenco post</a></p>
 <?php else: ?>
@@ -50,4 +59,6 @@
 <?php endforeach ?>
 </ul>
 <?php endif ?>
+</body>
+</html>
 
