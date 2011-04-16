@@ -2,7 +2,7 @@
 
   require_once('../lib/useful_functions.php');
 
-  const POSTS_DIR='posts';
+  define('POSTS_DIR', 'posts');
 
   $posts=scandir(POSTS_DIR); // leggo la directory dei post
   //print_r($posts); // visualizzo l'elenco
