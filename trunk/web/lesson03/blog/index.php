@@ -35,30 +35,49 @@
     }
   else
     {
-     $action='view';
+     $action='list';
     }
 
 
+  if(array_key_exists('message', $_COOKIE))
+  {
+    $message=$_COOKIE['message'];
+    setcookie('message', '');
+  }
+  else
+  {
+    $message = '';
+  }
+
+  switch($action)
+  {
+    case 'view':
+      break;
+    case 'edit':
+      break;
+    case 'save':
+      if (savepost())
+      {
+        redirect('?list', 'Post salvato correttamente.');
+      }
+      else
+      {
+        redirect('?id=' . $id . '&action=edit');
+      }
+      break;
+  }
 
 ?>
 <html lang="it">
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>BLOG</title>
 </head>
 <body>
-<?php if($id): ?>
-<h1>Id = <?php echo $id ?></h1>
-<?php include('templates/' . $action . '.php') ?>
-<hr />
-<p><a href="?">Elenco post</a></p>
-<?php else: ?>
-<h1>Elenco post</h1>
-<ul>
-<?php foreach($realposts as $post): ?>
-  <li><a href="?id=<?php echo $post ?>"><?php echo $post ?></a></li>
-<?php endforeach ?>
-</ul>
+<?php if($message): ?>
+<p style="background-color: yellow"><?php echo $message ?></p>
 <?php endif ?>
+<?php include('templates/' . $action . '.php') ?>
 </body>
 </html>
 
