@@ -1,0 +1,2 @@
+zip blog.zip $(find . -path '*.svn*' -prune -o -print)
+

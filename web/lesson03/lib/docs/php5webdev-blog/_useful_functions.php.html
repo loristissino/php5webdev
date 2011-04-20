@@ -36,7 +36,137 @@
 															<span class="disabled">Functions</span>
 		</div>
 		<div class="info-box-body">	
-			<a name="functionnothidden" id="functionnothidden"><!-- --></a>
+			<a name="functiondeletepost" id="functiondeletepost"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">deletepost</span> (line <span class="line-number">57</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">delete a post</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> true if the post was correctly saved</li>
+				<li><span class="field">author:</span> Loris Tissino &lt;<a href="mailto:loris@tissino.it">loris@tissino.it</a>&gt;</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">bool</span>
+		<span class="method-name">
+			deletepost
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: the id of the post</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionforward404" id="functionforward404"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">forward404</span> (line <span class="line-number">105</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">redirect the browser to a page specified by $target</p>
+<p class="description"><p>This function is useful when you want to redirect the browser after a post.  No code is executed afterwards, so it does not actually return anything.  See http://php.net/manual/en/function.header.php for details.</p></p>
+	<ul class="tags">
+				<li><span class="field">author:</span> Loris Tissino &lt;<a href="mailto:loris@tissino.it">loris@tissino.it</a>&gt;</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			forward404
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$message</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$target</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$target</span><span class="var-description">: the new location</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$message</span><span class="var-description">: a message to be set with a cookie</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functiongetFlashMessage" id="functiongetFlashMessage"><!-- --></a>
+<div class="evenrow">
+	
+	<div>
+		<span class="method-title">getFlashMessage</span> (line <span class="line-number">160</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return a flash message, previously set with a cookie, and delete the cookie</p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the value of the message</li>
+				<li><span class="field">author:</span> Loris Tissino &lt;<a href="mailto:loris@tissino.it">loris@tissino.it</a>&gt;</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getFlashMessage
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>)
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the message name</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functiongetRequestParameter" id="functiongetRequestParameter"><!-- --></a>
+<div class="oddrow">
+	
+	<div>
+		<span class="method-title">getRequestParameter</span> (line <span class="line-number">132</span>)
+	</div> 
+
+	<!-- ========== Info from phpDoc block ========= -->
+<p class="short-description">return a request parameter, or a default if the parameter does not exist</p>
+<p class="description"><p>This function is handy if you want to get a specified parameter from the  HTTP request. If the parameter does not exist, a default value can be  specified.  The type can be one of the following: <ul><li>'GET' for URL-encoded parameters</li><li>'POST' for parameters sent in the body of the request</li><li>'COOKIE' for cookies</li></ul></p></p>
+	<ul class="tags">
+				<li><span class="field">return:</span> the parameter value, or the default</li>
+				<li><span class="field">author:</span> Loris Tissino &lt;<a href="mailto:loris@tissino.it">loris@tissino.it</a>&gt;</li>
+			</ul>
+	
+	<div class="method-signature">
+		<span class="method-result">string</span>
+		<span class="method-name">
+			getRequestParameter
+		</span>
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$name</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$default</span> = <span class="var-default">&#039;&#039;</span>], [<span class="var-type">string</span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">&#039;GET&#039;</span>])
+			</div>
+
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$name</span><span class="var-description">: the parameter name</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$default</span><span class="var-description">: a default value, if needed</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$type</span><span class="var-description">: the type of parameter ('GET', 'POST', 'COOKIE')</span>			</li>
+				</ul>
+		
+	
+</div>
+<a name="functionnothidden" id="functionnothidden"><!-- --></a>
 <div class="evenrow">
 	
 	<div>
@@ -70,32 +200,34 @@
 <div class="oddrow">
 	
 	<div>
-		<span class="method-title">redirect</span> (line <span class="line-number">50</span>)
+		<span class="method-title">redirect</span> (line <span class="line-number">83</span>)
 	</div> 
 
 	<!-- ========== Info from phpDoc block ========= -->
 <p class="short-description">redirect the browser to a page specified by $target</p>
-<p class="description"><p>This function is useful when you want to redirect the browser after a post.  See http://php.net/manual/en/function.header.php for details.</p></p>
+<p class="description"><p>This function is useful when you want to redirect the browser after a post.  No code is executed afterwards, so it does not actually return anything.  See http://php.net/manual/en/function.header.php for details.</p></p>
 	<ul class="tags">
-				<li><span class="field">return:</span> true if the post was correctly saved</li>
 				<li><span class="field">author:</span> Loris Tissino &lt;<a href="mailto:loris@tissino.it">loris@tissino.it</a>&gt;</li>
 			</ul>
 	
 	<div class="method-signature">
-		<span class="method-result">bool</span>
+		<span class="method-result">void</span>
 		<span class="method-name">
 			redirect
 		</span>
-					(<span class="var-type"></span>&nbsp;<span class="var-name">$target</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$message</span> = <span class="var-default">&#039;&#039;</span>])
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$target</span>, [<span class="var-type">string</span>&nbsp;<span class="var-name">$message</span> = <span class="var-default">&#039;&#039;</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$type</span> = <span class="var-default">&#039;info&#039;</span>])
 			</div>
 
 			<ul class="parameters">
 					<li>
-				<span class="var-type"></span>
-				<span class="var-name">$target</span>			</li>
+				<span class="var-type">string</span>
+				<span class="var-name">$target</span><span class="var-description">: the new location</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$message</span><span class="var-description">: a message to be set with a cookie</span>			</li>
 					<li>
 				<span class="var-type"></span>
-				<span class="var-name">$message</span>			</li>
+				<span class="var-name">$type</span>			</li>
 				</ul>
 		
 	
@@ -104,12 +236,11 @@
 <div class="evenrow">
 	
 	<div>
-		<span class="method-title">savepost</span> (line <span class="line-number">34</span>)
+		<span class="method-title">savepost</span> (line <span class="line-number">32</span>)
 	</div> 
 
 	<!-- ========== Info from phpDoc block ========= -->
-<p class="short-description">save a post using global array $_GET and $_POST as input</p>
-<p class="description"><p>We assume that the $_GET and $_POST variables contain the values  of the post to update.  No check is done before saving the file.</p></p>
+<p class="short-description">save a post</p>
 	<ul class="tags">
 				<li><span class="field">return:</span> true if the post was correctly saved</li>
 				<li><span class="field">author:</span> Loris Tissino &lt;<a href="mailto:loris@tissino.it">loris@tissino.it</a>&gt;</li>
@@ -120,9 +251,17 @@
 		<span class="method-name">
 			savepost
 		</span>
-				()
+					(<span class="var-type">string</span>&nbsp;<span class="var-name">$id</span>, <span class="var-type">string</span>&nbsp;<span class="var-name">$content</span>)
 			</div>
 
+			<ul class="parameters">
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$id</span><span class="var-description">: the id of the post</span>			</li>
+					<li>
+				<span class="var-type">string</span>
+				<span class="var-name">$content</span><span class="var-description">: the content to save</span>			</li>
+				</ul>
 		
 	
 </div>
@@ -130,7 +269,7 @@
 	</div>
 	
 	<p class="notes" id="credit">
-		Documentation generated on Sat, 16 Apr 2011 11:54:50 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+		Documentation generated on Wed, 20 Apr 2011 19:12:45 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
 	</p>
 	</div></body>
 </html>
