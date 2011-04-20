@@ -4,67 +4,73 @@
 
   define('POSTS_DIR', 'posts');
 
-  $posts=scandir(POSTS_DIR); // leggo la directory dei post
-  //print_r($posts); // visualizzo l'elenco
+  $posts=array_filter(scandir(POSTS_DIR), 'nothidden');
   
-  $realposts=array_filter($posts, 'nothidden');
-  
-  //print_r($realposts); // visualizzo l'elenco
-  
-  
-  if (array_key_exists('id', $_GET))  // recupero l'id del post che l'utente desidera 
-    {
-     $id=$_GET['id'];
-    }
-  else
-    {
-     $id='';
-    }
-    
-  //print_r($realposts);
-  if (!in_array($id, $realposts))
-  {
-    $id='';
-  }
-  
-  //print_r($realposts);
+  $action=getRequestParameter('action', 'list');
 
-  if (array_key_exists('action', $_GET))  // recupero l'id del post che l'utente desidera 
-    {
-     $action=$_GET['action'];
-    }
-  else
-    {
-     $action='list';
-    }
-
-
-  if(array_key_exists('message', $_COOKIE))
-  {
-    $message=$_COOKIE['message'];
-    setcookie('message', '');
-  }
-  else
-  {
-    $message = '';
-  }
+  $info=getFlashMessage('info');
+  $error=getFlashMessage('error');
 
   switch($action)
   {
+    case 'list':
+      break;
     case 'view':
+      $id=getRequestParameter('id', '');
+        
+      if (!in_array($id, $posts))
+      {
+        forward404('L\'articolo richiesto non esiste.'); 
+      }
       break;
     case 'edit':
+      $id=getRequestParameter('id', '');
+        
+      if (!in_array($id, $posts))
+      {
+        forward404('L\'articolo richiesto non esiste.'); 
+      }
       break;
     case 'save':
-      if (savepost())
+      $id=getRequestParameter('id', '');
+        
+      if (!in_array($id, $posts))
       {
-        redirect('?list', 'Post salvato correttamente.');
+        forward404('L\'articolo richiesto non esiste.'); 
+      }
+      if (savepost($id, getRequestParameter('text', '', 'POST')))
+      {
+        redirect('?action=list', 'Post salvato correttamente.', 'info');
       }
       else
       {
-        redirect('?id=' . $id . '&action=edit');
+        redirect('?id=' . getRequestParameter('id', '') . '&action=edit', 'Problemi nel salvataggio dell\'articolo', 'error');
       }
       break;
+    case 'delete':
+      $id=getRequestParameter('id', '');
+        
+      if (!in_array($id, $posts))
+      {
+        forward404('L\'articolo richiesto non esiste.'); 
+      }
+      
+      if ($_SERVER['REQUEST_METHOD']=='POST' or $_SERVER['REQUEST_METHOD']=='DELETE')
+      {
+        if(deletepost($id))
+        {
+          redirect('?action=list', 'Articolo eliminato correttamente.', 'info');
+        }
+        else
+        {
+          redirect('?action=view&id='. $id, 'Problemi con l\'eliminazione.', 'error');
+        }
+      }
+      break;
+
+    default:
+      forward404('L\'azione richiesta non esiste.'); 
+      
   }
 
 ?>
@@ -74,8 +80,11 @@
 <title>BLOG</title>
 </head>
 <body>
-<?php if($message): ?>
-<p style="background-color: yellow"><?php echo $message ?></p>
+<?php if($info): ?>
+<p style="background-color: lightgreen"><?php echo $info ?></p>
+<?php endif ?>
+<?php if($error): ?>
+<p style="background-color: red"><?php echo $error ?></p>
 <?php endif ?>
 <?php include('templates/' . $action . '.php') ?>
 </body>
