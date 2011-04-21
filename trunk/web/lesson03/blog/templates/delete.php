@@ -6,3 +6,5 @@
 </form>
 <hr />
 <p><a href="?action=view&id=<?php echo $id ?>">Modifica articolo</a></p>
+
+<?php include('templates/_linktolist.php') ?>
