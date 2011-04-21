@@ -11,5 +11,4 @@
 <hr />
 <p><a href="?id=<?php echo $id ?>&action=view">Torna alla visualizzazione</a></p>
 
-<hr />
-<p><a href="?action=list">Elenco post</a></p>
+<?php include('templates/_linktolist.php') ?>

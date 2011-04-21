@@ -1,4 +1,4 @@
-<h1>Elenco post</h1>
+<h1>Elenco articoli</h1>
 <ul>
 <?php foreach($posts as $post): ?>
   <li><a href="?id=<?php echo $post ?>&action=view"><?php echo $post ?></a></li>
