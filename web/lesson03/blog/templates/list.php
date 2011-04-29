@@ -4,3 +4,5 @@
   <li><a href="?id=<?php echo $post ?>&action=view"><?php echo $post ?></a></li>
 <?php endforeach ?>
 </ul>
+<hr />
+<p><a href="?action=new">Aggiungi articolo</a></p>

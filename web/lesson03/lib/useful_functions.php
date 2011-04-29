@@ -31,6 +31,8 @@ function nothidden($filename)
  */
 function savepost($id, $content)
 {
+  
+  $content=strip_tags($content, '<a><b><i>');
   try
   {
     if ($f = fopen(POSTS_DIR . '/' . $id, 'w'))
