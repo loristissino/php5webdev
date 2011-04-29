@@ -15,6 +15,19 @@
   {
     case 'list':
       break;
+    case 'new':
+      if ($_SERVER['REQUEST_METHOD']=='POST')
+      {
+        if(savepost(getRequestParameter('id', '', 'POST'), getRequestParameter('text', '', 'POST')))
+        {
+          redirect('?action=list', 'Articolo pubblicato correttamente.', 'info');
+        }
+        else
+        {
+          redirect('?action=new', 'Problemi con la pubblicazione.', 'error');
+        }
+      }
+      break;
     case 'view':
       $id=getRequestParameter('id', '');
         
@@ -48,6 +61,7 @@
       }
       break;
     case 'delete':
+    
       $id=getRequestParameter('id', '');
         
       if (!in_array($id, $posts))
@@ -86,7 +100,9 @@
 <?php if($error): ?>
 <p style="background-color: red"><?php echo $error ?></p>
 <?php endif ?>
+<div id="maincontent">
 <?php include('templates/' . $action . '.php') ?>
+</div>
 </body>
 </html>
 
